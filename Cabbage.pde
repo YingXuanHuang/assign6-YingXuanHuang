@@ -13,10 +13,10 @@ if(player.health < player.PLAYER_MAX_HEALTH
         player.health ++;
         isAlive=false;
       }
-      }
+}
 
-   Cabbage(float x, float y){
-      super(x,y);
-    }
+Cabbage(float x, float y){
+   super(x,y);
+}
     
 }  //class
