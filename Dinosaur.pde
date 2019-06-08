@@ -2,7 +2,7 @@ class Dinosaur extends Enemy {
 	// Requirement #4: Complete Dinosaur Class
 
 final float TRIGGERED_SPEED_MULTIPLIER = 5;
-float speed = 2f/2;
+float speed = 1f;
 
 void checkCollision(Player player){
 super.checkCollision(player);
@@ -26,11 +26,22 @@ void display(){
 }
 
 void update(){
-  
+
   x += speed;
-    if (x<0 || x>width-w) { 
-    speed *= -1 ;
+  
+    if (x<0 || x>width-w){ 
+      speed *= -1 ;
     }
+    if(player.y == y && player.x > x && speed == 1f ){
+      speed *= TRIGGERED_SPEED_MULTIPLIER;
+    }
+    if(player.y == y && player.x < x && speed == -1f){
+      speed *= TRIGGERED_SPEED_MULTIPLIER;
+    }
+    if(player.y != y){
+      speed = (speed > 0) ? 1f : -1f;
+    }
+    
 }
 
 Dinosaur(float x, float y){
